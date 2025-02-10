@@ -18,8 +18,14 @@ Pod::Spec.new do |s|
   s.platform              = :ios, '9.0'
 
   s.dependency 'Flutter'
-  s.dependency 'HealthKitReporter'
- 
+  s.source = {
+    # For pods hosted on GitHub
+    :git => "https://github.com/vaibhav891/HealthKitReporter",
+    # Alternatively, for pods hosted locally
+    # :path => "file:///path/to/private/repo",
+    :branch => "master"
+  }
+  
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
 end
